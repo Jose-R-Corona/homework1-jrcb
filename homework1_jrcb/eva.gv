@@ -1,0 +1,20 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"core_link" [label="core_link"];
+"left_arm_link" [label="left_arm_link"];
+"right_arm_link" [label="right_arm_link"];
+"head_link" [label="head_link"];
+"eye1_link" [label="eye1_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "propeler_to_core" [label="xyz: 0 0 0.6 \nrpy: 0 -0 0"]
+"propeler_to_core" -> "core_link"
+"core_link" -> "core_to_left_arm" [label="xyz: 0.2 0 0 \nrpy: 0 1.5708 -0"]
+"core_to_left_arm" -> "left_arm_link"
+"core_link" -> "core_to_right_arm" [label="xyz: -0.2 0 0 \nrpy: 0 1.5708 -0"]
+"core_to_right_arm" -> "right_arm_link"
+"core_link" -> "head_to_core" [label="xyz: 0 0 0.2 \nrpy: 0 -0 0"]
+"head_to_core" -> "head_link"
+"head_link" -> "eye1_to_head" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"eye1_to_head" -> "eye1_link"
+}
